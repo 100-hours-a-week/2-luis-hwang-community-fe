@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KakaoTech Cloud Native in JEJU 2기</title>
+    <title>KakaoTech Cloud Native in JEJU 2기 커뮤니티</title>
 
-    <!-- CSS FILES -->
-    <link rel="stylesheet" type="text/css" href="../css/common.css">
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
-
-    <!-- SCRIPT FILES -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-    <script defer src="../js/bubble.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <!-- SCRIPT -->
 </head>
 
 <body id="body">
-    <header class="text-center my-sm">
-        <h1>KakaoTech Cloud Native in JEJU 2기</h1>
-        <p>Created By luis.hwang (황승수)</p>
+    <header id="header">
+        <p>아무 말 대잔치</p>
     </header>
 
-    <section class="my-md">
-        <div class="form-box">
-            <form class="form" method="POST" action="http://localhost:3000/login">
-                <h2>로그인하고 커뮤니티에 합류하세요</h2>
-                <input type="text" name="name" placeholder="luis.hwang" />
-                <input type="password" name="password" placeholder="start21" />
-                <input type="submit" value="Login" />
-                <a class="link my-sm" href="/signup.html">아직 회원이 아니신가요?</a>
+    <article id="article">
+        <header>
+            <h2>로그인</h2>
+        </header>
+        <section>
+            <form id="login-form">
+                <label for="email">이메일
+                    <input id="email" class="input" type="text" placeholder="이메일을 입력하세요." />
+                </label>
+                <label for="password">비밀번호
+                    <input id="password" class="input" type="text" placeholder="비밀번호를 입력하세요." />
+                </label>
+                <span class="helper-text">*helper text</span>
+                <input type="submit" class="submit-btn" value="로그인" />
+                <a class="link" href="/index.html">회원가입</p>
             </form>
-        </div>
-    </section>
+        </section>
+    </article>
 </body>
 
 </html>

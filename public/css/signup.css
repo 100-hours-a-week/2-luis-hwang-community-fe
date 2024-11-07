@@ -1,0 +1,42 @@
+#signup-header-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 300px;
+  gap: 14px;
+}
+
+#signup-header-section > .file-label {
+  margin: auto;
+}
+
+#signup-header > span:first-child {
+  font-weight: bold;
+}
+
+#signup-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+#signup-form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#signup-form > input[type='submit'] {
+  width: 100%;
+  height: 32px;
+}

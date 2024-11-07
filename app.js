@@ -15,94 +15,68 @@ const PORT = 3000;
 
 // 경로
 const PATH = {
-    get ROOT() {
-        return process.cwd();
-    },
-    get __dirname() {
-        return fileURLToPath(new URL('.', import.meta.url));
-    },
-    get PUBLIC() {
-        return path.join(this.__dirname, 'public');
-    },
-    get PAGES() {
-        return path.join(this.PUBLIC, 'pages');
-    },
-    get JSON() {
-        return path.join(this.PUBLIC, 'json');
-    },
-    get LOGS() {
-        return path.join(this.ROOT, 'logs');
-    },
-    get LOGIN_HISTORY() {
-        return path.join(this.LOGS, `login-${new Date().toDateString().replaceAll(' ', '_')}.txt`);
-    }
-}
+  get ROOT() {
+    return process.cwd();
+  },
+  get __dirname() {
+    return fileURLToPath(new URL('.', import.meta.url));
+  },
+  get PUBLIC() {
+    return path.join(this.__dirname, 'public');
+  },
+  get PAGES() {
+    return path.join(this.PUBLIC, 'pages');
+  },
+  get JSON() {
+    return path.join(this.PUBLIC, 'json');
+  },
+  get LOGS() {
+    return path.join(this.ROOT, 'logs');
+  },
+  get LOGIN_HISTORY() {
+    return path.join(
+      this.LOGS,
+      `login-${new Date().toDateString().replaceAll(' ', '_')}.txt`,
+    );
+  },
+};
 
 // 미들웨어 설정
 app.use(express.static(PATH.PUBLIC)); // 정적 파일 제공 설정
 app.use(express.urlencoded({ extended: true })); // 임시 로그인 기능을 위해 인코딩 해석 미들웨어 추가
 
 // index 페이지 응답
-app.get("/", (req, res) => {
-    res.sendFile(path.join(PATH.PAGES, 'index.html'));
-})
+app.get('/', (req, res) => {
+  res.sendFile(path.join(PATH.PAGES, 'index.html'));
+});
 
 // login 페이지 응답
-app.get("/login", (req, res) => {
-    res.sendFile(path.join(PATH.PAGES, 'login.html'));
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(PATH.PAGES, 'login.html'));
 });
 
 /* 백엔드 서버 구현 전 임시 로그인 기능 구현 */
-app.post("/login", (req, res) => {
-    const body = req.body;
+app.post('/login', (req, res) => {
+  const body = req.body;
 
-    if (body.name === '' || body.password !== 'start21') {
-        return res.status(400);
-    }
+  if (body.name === '' || body.password !== 'start21') {
+    return res.status(400);
+  }
 
-    const data = { ...body, date: new Date() };
+  const data = { ...body, date: new Date() };
 
-    fs.appendFileSync(PATH.LOGIN_HISTORY, JSON.stringify(data) + "\n", 'utf8');
-    res.redirect("http://localhost:3000");
-});
-
-/* 백엔드 서버 구현 전 임시 피드 응답 기능 */
-app.get("/feeds", (req, res) => {
-    const { page = 1, size = 10 } = req.query;
-    const pageNum = parseInt(page, 10);
-    const pageSize = parseInt(size, 10);
-
-    fs.readFile(path.join(PATH.JSON, "feeds.json"), "utf8", (err, data) => {
-        if (err) {
-            res.status(500).json({ error: "Can't read feeds" });
-        }
-
-        try {
-            const jsonData = JSON.parse(data);
-            const reversedData = jsonData.items.reverse();
-
-            // 페이지 처리
-            const start = (pageNum - 1) * pageSize;
-            const end = start + pageSize;
-            const paginatedData = reversedData.slice(start, end);
-
-            res.json({ items: paginatedData });
-        }
-
-        catch (jsonError) {
-            res.status(500).json({ error: "Can't parse JSON file" });
-        }
-    })
+  fs.appendFileSync(PATH.LOGIN_HISTORY, JSON.stringify(data) + '\n', 'utf8');
+  res.redirect('http://localhost:3000');
 });
 
 // 이외 경로 접근시 디폴트 페이지
-app.get("/*", (req, res) => {
-    res.sendFile(path.join(PATH.PAGES, 'notFound.html'));
-})
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(PATH.PAGES, 'notFound.html'));
+});
 
 app.listen(PORT, () => {
-    if (!fs.existsSync(PATH.LOGIN_HISTORY)) {
-        fs.writeFileSync(PATH.LOGIN_HISTORY, '', 'utf8');
-    }
-    console.log(`Server is running on http://localhost:${PORT}`);
+  if (!fs.existsSync(PATH.LOGIN_HISTORY)) {
+    fs.writeFileSync(PATH.LOGIN_HISTORY, '', 'utf8');
+  }
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
