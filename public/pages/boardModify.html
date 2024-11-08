@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KakaoTech Cloud Native in JEJU 2기 커뮤니티</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/boardModify.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <!-- SCRIPT -->
+</head>
+
+<body id="body">
+    <header id="header">
+        <input type="button" class="prev-btn" value="&lt;" />
+        <p>아무 말 대잔치</p>
+        <div class="avatar"></div>
+    </header>
+
+    <article id="board-modify-article">
+        <header>
+            <h3>게시글 수정</h3>
+        </header>
+
+        <!-- 수정 섹션 -->
+        <section id="board-modify-section">
+            <!-- 제목 수정란 -->
+            <div>
+                <p class="text-highlight">제목*</p>
+                <input type="text" class="input" value="제목 1" />
+            </div>
+
+            <!-- 내용 수정란 -->
+            <div>
+                <p class="text-highlight">내용*</p>
+                <textarea id="board-modify-content">수정할 내용들.....</textarea>
+            </div>
+
+            <!-- 이미지 수정란 -->
+            <div id="board-modify-img">
+                <p class="helper-text">*helper-text</p>
+                <p class="text-highlight">이미지</p>
+                <input type="file" />
+            </div>
+        </section>
+
+        <!-- 수정 버튼 섹션 -->
+        <section id="board-modify-btn-section">
+            <input type="button" value="수정하기" />
+        </section>
+    </article>
+</body>
+
+</html>

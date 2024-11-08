@@ -1,0 +1,42 @@
+#board-modify-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#board-modify-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 32px;
+}
+
+#board-modify-content {
+  width: 100%;
+  height: 256px;
+  resize: none;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+#board-modify-img {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+#board-modify-btn-section {
+  margin-top: 64px;
+}
+
+#board-modify-btn-section > input[type='button'] {
+  width: 256px;
+  height: 32px;
+  border: none;
+  background-color: #7f6aee;
+  color: white;
+}

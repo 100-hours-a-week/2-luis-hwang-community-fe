@@ -101,3 +101,10 @@
   background-color: lightgray;
   border-radius: 50%;
 }
+
+.avatar-big {
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  border-radius: 50%;
+}

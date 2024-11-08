@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KakaoTech Cloud Native in JEJU 2기 커뮤니티</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/userModify.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <!-- SCRIPT -->
+</head>
+
+<body id="body">
+    <header id="header">
+        <input type="button" class="prev-btn" value="&lt;" />
+        <p>아무 말 대잔치</p>
+        <div class="avatar"></div>
+    </header>
+
+    <article id="article">
+        <section>
+            <header>
+                <h2>회원정보수정</h2>
+            </header>
+        </section>
+
+        <section id="user-modify-section">
+            <div>
+                <p class="text-highlight">프로필 사진*</p>
+                <div id="user-modify-img" class="avatar-big"></div>
+            </div>
+
+            <form id="user-modify-form">
+                <div>
+                    <p class="text-highlight" for="email">이메일</p>
+                    <p>rivercity310@github.com</p>
+                </div>
+
+                <label id="user-modify-nickname-label" for="nickname">닉네임
+                    <input id="nickname" class="input" type="text" placeholder="luis.hwang" />
+                    <span class="helper-text">*helper text</span>
+                </label>
+
+                <div id="user-modify-btn-1">
+                    <input type="submit" value="수정하기" />
+                    <a class="link" href="">회원 탈퇴</a>
+                </div>
+
+                <input type="submit" value="수정완료" />
+            </form>
+        </section>
+    </article>
+</body>
+
+</html>
